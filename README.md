@@ -26,7 +26,6 @@
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
-  <summary>Client</summary>
   <summary>Database</summary>
   <ul>
     <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
@@ -37,7 +36,8 @@
 
 
 
-- [Comprehensive Animal Records] Store detailed information about each animal, including name, species,   date of birth, weight, neutering status, and escape attempts.
+-[Comprehensive Animal Records] Store detailed information about each animal, including name, species,   date of birth, weight, neutering status, and escape attempts.
+
 -[Flexible Schema] Easily extendable schema to include additional data fields as needed, allowing for the tracking of more animal-specific attributes or medical records.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
