@@ -23,3 +23,79 @@ SELECT * FROM animals WHERE name != 'Gabumon';
 
 -- Find all animals with a weight between 10.4kg and 17.3kg 
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
+
+____________________________________________________________________________________________
+
+BEGIN;
+UPDATE animals
+SET species = 'unspecified';
+
+SELECT * from animals;
+
+ROLLBACK;
+
+SELECT * from animals;
+
+BEGIN;
+UPDATE animals
+SET species = 'digimon'
+WHERE name LIKE '%mon';
+UPDATE animals
+SET species = 'pokemon'
+WHERE species IS NULL;
+
+SELECT * from animals;
+
+COMMIT;
+SELECT * from animals;
+
+BEGIN;
+DELETE FROM animals;
+
+SELECT * from animals;
+
+ROLLBACK;
+
+SELECT * from animals;
+
+BEGIN;
+DELETE FROM animals
+WHERE date_of_birth > '2022-1-1';
+
+SAVEPOINT m-_savepoint;
+
+UPDATE animals
+SET weight_kg = weight_kg * -1;
+
+SELECT * from animals;
+
+ROLLBACK TO my_savepoint;
+
+SELECT * from animals;
+
+UPDATE animals
+SET weight_kg = weight_kg * -1
+WHERE weight_kg < 0;
+
+SELECT * from animals;
+
+COMMIT;
+
+SELECT * from animals;
+ 
+
+___________________________________________________________________________________
+
+
+SELECT COUNT(*) FROM animals;
+
+SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg) FROM animals;
+
+SELECT neutered, SUM(escape_attempts) FROM animals GROUP BY neutered;
+
+SELECT species, MAX(weight_kg), MIN(weight_kg) FROM animals GROUP BY species;
+
+SELECT species, AVG(escape_attempts) FROM animals WHERE date_of_birth BETWEEN '1990-1-1' AND '2000-12-31' GROUP BY species;
