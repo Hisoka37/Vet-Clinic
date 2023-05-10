@@ -17,7 +17,7 @@ INSERT INTO animals VALUES  (1, 'Agumon', 'Feb 3, 2020', 0, 'true', 10.23 ),
 ______________________________________________________________________________________________________________________________
 
 
-INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34), ('Jennifer Orwell', 19), ('Bob', 45), ('Melody', 77), ('Dean Winchester', 14), ('Jodie Whittaker', 38);
+INSERT INTO owners (full_name, age) VALUES ('Sam Smith', 34), ('Jennifer Orwell', 19), ('Bob', 45), ('Melody Pond', 77), ('Dean Winchester', 14), ('Jodie Whittaker', 38);
 
 INSERT INTO species (name) VALUES ('Pokemon'), ('Digimon');
 
@@ -44,7 +44,7 @@ WHERE animals.name IN ('Gabumon', 'Pikachu') AND owners.full_name = 'Jennifer Or
 UPDATE animals
 SET owner_id = owners.id
 FROM owners
-WHERE animals.name IN ('Charmander', 'Squirtle', 'Blossom') AND owners.full_name = 'Melody';
+WHERE animals.name IN ('Charmander', 'Squirtle', 'Blossom') AND owners.full_name = 'Melody Pond';
 UPDATE animals
 SET owner_id = owners.id
 FROM owners
