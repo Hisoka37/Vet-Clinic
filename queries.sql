@@ -107,7 +107,7 @@ SELECT animals.name, owners.full_name
 FROM animals 
 JOIN owners 
 ON animals.owner_id = owners.id 
-WHERE owners.full_name = 'Melody';
+WHERE owners.full_name = 'Melody Pond';
 
 SELECT animals.name AS animal_name, species.name AS species_type 
 FROM animals 
