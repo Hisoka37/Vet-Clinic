@@ -39,4 +39,28 @@ ALTER TABLE animals ADD COLUMN owner_id INT,
   REFERENCES owners (id);
 
 ----------------------------------------------------------- 
+-------------------------------------------------------------
 
+CREATE TABLE vets (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    age INT,
+    date_of_graduation DATE
+);
+
+CREATE TABLE specializations (
+    vets_id INT,
+    species_id INT,
+    PRIMARY KEY (vets_id, species_id),
+    FOREIGN KEY (vets_id) REFERENCES vets(id) ON DELETE CASCADE,
+    FOREIGN KEY (species_id) REFERENCES species(id) ON DELETE CASCADE
+);
+
+CREATE TABLE visits (
+    animals_id INT,
+    vets_id INT,
+    visits_date DATE,
+    PRIMARY KEY (animals_id, vets_id, visits_date),
+    FOREIGN KEY (animals_id) REFERENCES animals(id) ON DELETE CASCADE,
+    FOREIGN KEY (vets_id) REFERENCES vets(id) ON DELETE CASCADE,
+);
